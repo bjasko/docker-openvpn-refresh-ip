@@ -3,7 +3,7 @@ MAINTAINER Jasmin Beganović <bjasko@bring.out.ba>
 
   
 RUN apt-get update -q
-RUN apt-get install -qy openvpn iptables python-pip
+RUN apt-get install -qy openvpn iptables python-pip python-dev
 
 RUN pip install pyrax
 
