@@ -17,7 +17,7 @@ sudo ip addr add $S_HOST_IP/24 dev $S_DEV
 
 docker rm -f  $CT_NAME
 docker run -d \
-      --privileged  --net=host -d \
+      --privileged  --net=host \
       -v $VOLUME_BASE/$S_HOST.$S_DOMAIN/etc/openvpn:/etc/openvpn \
       --name $CT_NAME \
       -p $S_HOST_IP:1194:1194/udp  \
