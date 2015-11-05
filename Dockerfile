@@ -3,12 +3,12 @@ MAINTAINER Jasmin Beganović <bjasko@bring.out.ba>
 
   
 RUN apt-get update -q
-RUN apt-get install -qy openvpn iptables python-pip python-dev
-
+RUN apt-get install -qy openvpn iptables python-pip python-dev supervisor  traceroute tcpdump
 RUN pip install pyrax
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 VOLUME  ["/etc/openvpn"]
 
-CMD ["/usr/sbin/openvpn",  "--config", "/etc/openvpn/server.conf"]
-
+CMD ["/usr/bin/supervisord"]
 
